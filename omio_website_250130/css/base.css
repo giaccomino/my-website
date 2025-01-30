@@ -1,0 +1,457 @@
+/*----------------------
+
+  00. Presets
+  01. Layout
+  02. Helpers
+  03. Elements
+  04. Portfolio
+  05. Lightbox
+
+-----------------------*/
+/*---
+  00. Presets
+---*/
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+::-moz-selection {
+  background: #162330;
+  color: #eee;
+}
+
+::selection {
+  background: #162330;
+  color: #eee;
+}
+
+a:focus, a:active, a:hover, textarea:focus, textarea:active, textarea:hover, input:focus, input:active, input:hover {
+  outline: 0;
+}
+
+
+/*---
+  01. Layout
+---*/
+#wrapper {
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/*--- para que las imagenes, sections, sean igual de anchas que la pantalla ---*/
+@media screen and (min-width: 1300px) {
+  .container {
+    width: auto;
+  }
+}
+
+
+/*---
+  02. Helpers
+---*/
+
+
+.top-line {
+  border-top: 1px solid #eee;
+}
+
+.bottom-line {
+  border-bottom: 1px solid #eee;
+}
+
+/*--- color bg pata cuando estamo en dark mode = nuetro blue4 ---*/
+.dark {
+  background: #162330;
+}
+
+/*--- el color del texto en dark mode!! ---*/
+.dark * {
+	color: #fff !important;
+	border-color: #fff;
+	padding-left: 65px;
+/*--- 	padding-bottom: 5px; ---*/
+	opacity: 1;
+	margin-left: 0px;
+	z-index: 999;
+}
+.dark2 {
+  background: #162330;
+}
+.dark2 * {
+	color: #fff !important;
+	border-color: #fff;
+	/*--- 	padding-bottom: 5px; ---*/
+	opacity: 1;
+	z-index: 999;
+	margin-left: 17px;
+	margin-right: -23px;
+}
+
+.dark3 {
+  background: #162330;
+}
+
+/*--- el color del texto en dark mode!! ---*/
+.dark3 * {
+	color: #fff !important;
+	border-color: #fff;
+	padding-left: 0px;
+/*--- 	padding-bottom: 5px; ---*/
+	opacity: 1;
+	margin-left: 0px;
+	z-index: 999;
+}
+.light * {
+	color: #162330 !important;
+	border-color: #fff;
+	padding-left: 65px;
+/*--- 	padding-left: 65px; ---*/
+	padding-bottom: 5px;
+	opacity: 1;
+	margin-left: 0px;
+	z-index: 999;
+}
+
+.table * {
+	color: #162330 !important;
+	border-color: #fff;
+	padding-left: 0px;
+/*--- 	padding-left: 65px; ---*/
+	padding-bottom: 5px;
+	opacity: 1;
+	margin-left: 0px;
+	z-index: 999;
+}
+/*---
+  03. Elements
+---*/
+/*--- esto no se lo que es pero si lo quitamos no funciona la web---*/
+@media screen and (max-width: 992px) {
+  .product.slider {
+    margin-top: 75px;
+  }
+}
+
+body .hero {
+  height: 500px;
+  height: 55vh;
+  min-height: 500px;
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero2 {
+  height: 100px;
+  height: 15vh;
+  min-height: 100px;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg.faded {
+  opacity: .1;
+}
+
+.bg.faded-subtle {
+  opacity: .6;
+}
+
+/*---
+  04. Portfolio --------------------------------------------------------------------------------------------------------------------
+---*/
+/*--- margenes de los portraits con resecto a la web ---*/
+
+.grid {
+  margin: 0 10px;
+}
+
+/*--- tamano de la imagen dentro de los portraits en %, espaciado y ancho, obiviamente tienen que ser casi iguales -----------------------------cambiar estos dos valores a la vez------------------------------------*/ 
+@media screen and (min-width: 600px) {
+  .grid .grid-sizer {
+    width: 33.3333%;
+  }
+  .grid .grid-item {
+    width: 33.3333%;
+    position: relative;
+  }
+  .grid .grid-item.in-view {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  .grid .grid-item:before {
+    content: '';
+    display: block;
+    padding-top: 75.001%;
+  }
+/*--- los atributos que podemos anadir a los itmes: wide, tall, large y square ---*/
+  .grid .grid-item.wide {
+    width: 66.65%;
+  }
+  .grid .grid-item.wide:before {
+    padding-top: 37.6%;
+  }
+  .grid .grid-item.tall:before {
+    padding-top: 150%;
+  }
+  .grid .grid-item.large {
+    width: 66.65%;
+  }
+  .grid .grid-item.large:before {
+    padding-top: 75.00%;
+  }
+  .grid .grid-item.square:before {
+    padding-top: 100%;
+  }
+/*--- configuracion de los thumbs ---*/
+  .grid .grid-item .thumb, .grid .grid-item .caption {
+    position: absolute;
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+  }
+  .grid .grid-item .thumb {
+    top: 25px;
+    overflow: hidden;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+  }
+/*--- como hace face el grid item cd hoover, he cambiado el top de 50 a 500 ---*/
+  .grid .grid-item .caption {
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-transition: all .4s;
+    transition: all .4s;
+    overflow: hidden;
+    top: 500px;
+    opacity: 0;
+  }
+/*--- el offset del texto cuando hacemos hoover sobre un grid item, original es 40px ---*/
+  .grid .grid-item .caption .type, .grid .grid-item .caption .description, .grid .grid-item .caption .inner {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+  }
+/*--- el texto superior "la jefa" que aparece sobre el portrait cuando hacemos hoover ---*/
+  .grid .grid-item .caption .type {
+    top: 10px;
+    font-size: 18px;
+	font-family: phenomenalight;
+    letter-spacing: 1px;
+    color: #fff;
+    opacity: 0;
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
+    -webkit-transition: all .3s .3s;
+    transition: all .3s .3s;
+  }
+  .grid .grid-item .caption .description, .grid .grid-item .caption .inner {
+    bottom: 10px;
+    color: #fff;
+  }
+  .grid .grid-item .caption .description h4, .grid .grid-item .caption .description p, .grid .grid-item .caption .inner h4, .grid .grid-item .caption .inner p {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+  }
+  .grid .grid-item .caption .description h4, .grid .grid-item .caption .inner h4 {
+    -webkit-transition: all .3s;
+    transition: all .3s;
+  }
+  .grid .grid-item .caption .description p, .grid .grid-item .caption .inner p {
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .grid .grid-item .caption .description p:last-child, .grid .grid-item .caption .inner p:last-child {
+    margin-bottom: 0;
+  }
+/*--- ni idea, pero he cambiado de 17 a 57 para que baje el texo inferior ---*/
+  .grid .grid-item .caption .description .btn-hollow, .grid .grid-item .caption .inner .btn-hollow {
+    margin-top: 57px;
+    border-color: #fff;
+    color: #fff;
+    float: left;
+  }
+  .grid .grid-item .caption .description .btn-hollow:hover, .grid .grid-item .caption .description .btn-hollow:active, .grid .grid-item .caption .inner .btn-hollow:hover, .grid .grid-item .caption .inner .btn-hollow:active {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  .grid .grid-item:hover .sale {
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-transition: all .3s;
+    transition: all .3s;
+  }
+  .grid .grid-item:hover .caption {
+    top: 25px;
+    opacity: 1;
+  }
+  .grid .grid-item:hover .caption .type {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .grid .grid-item:hover .caption h4, .grid .grid-item:hover .caption p {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transition: all .3s;
+    transition: all .3s;
+  }
+  .grid .grid-item:hover .caption h4 {
+    -webkit-transition: opacity .5s .2s, -webkit-transform .3s .1s;
+    transition: opacity .5s .2s, -webkit-transform .3s .1s;
+    transition: opacity .5s .2s, transform .3s .1s;
+    transition: opacity .5s .2s, transform .3s .1s, -webkit-transform .3s .1s;
+  }
+  .grid .grid-item:hover .caption p {
+    -webkit-transition: opacity .5s .4s, -webkit-transform .3s .3s;
+    transition: opacity .5s .4s, -webkit-transform .3s .3s;
+    transition: opacity .5s .4s, transform .3s .3s;
+    transition: opacity .5s .4s, transform .3s .3s, -webkit-transform .3s .3s;
+  }
+}
+
+/*--- si nos lo cargamos se joden los items en ancho pequeno  ----------------------------------------------------------------------------------cambiar estos dos valores a la vez-------------------------------------*/
+@media screen and (max-width: 600px) {
+  .grid .grid-sizer {
+    width: 90%;
+  }
+  .grid .grid-item {
+    margin: 25px 25px 10px;
+    width: 90%;
+    display: inline-block;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.4);
+  }
+  .grid .grid-item .thumb {
+    background-size: cover;
+    background-position: center center;
+  }
+  .grid .grid-item .thumb:before {
+    padding-top: 100%;
+    content: '';
+    display: block;
+  }
+  .grid .grid-item .caption {
+    margin: 0;
+    padding: 25px;
+    color: #2E2E2E;
+  }
+  .grid .grid-item .caption p {
+    margin-bottom: 0;
+  }
+  .grid .grid-item:hover {
+    text-decoration: none;
+  }
+}
+
+
+/*---
+  05. Lightbox
+---*/
+
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  z-index: 9999;
+  display: none;
+}
+/*--- la imagen del portrait una vez pinchamos en ella ---*/
+#lightbox img, #lightbox iframe, #lightbox video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: auto;
+  height: auto;
+  max-width: 90%;
+  max-height: 90%;
+  opacity: 0;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-transition: opacity .8s, -webkit-transform 1s;
+  transition: opacity .8s, -webkit-transform 1s;
+  transition: transform 1s, opacity .8s;
+  transition: transform 1s, opacity .8s, -webkit-transform 1s;
+}
+
+#lightbox .controls {
+  background: #222;
+  width: 40px;
+  height: 120px;
+  position: absolute;
+  z-index: 10000;
+  bottom: 5%;
+  left: 0;
+}
+
+#lightbox .controls .galleryNext, #lightbox .controls .galleryClose, #lightbox .controls .galleryPrev {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #ccc;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+#lightbox .controls .galleryNext:hover, #lightbox .controls .galleryClose:hover, #lightbox .controls .galleryPrev:hover {
+  background: #444;
+  color: #fff;
+}
+/*--- cuando pasan los controles de abajo izda a arriba, original 768---*/
+@media screen and (max-width: 600px) {
+  #lightbox .controls {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    bottom: auto;
+  }
+  #lightbox .controls .galleryNext, #lightbox .controls .galleryClose, #lightbox .controls .galleryPrev {
+    width: 33.3333%;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+	font-family: phenomenalight;
+  }
+  #lightbox .controls .galleryClose {
+    background: black !important;
+    font-size: 30px;
+	  
+  }
+}
+
+#lightbox .caption {
+  display: none;
+  color: rgba(240, 240, 240, 0.5);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  padding: 20px;
+}
