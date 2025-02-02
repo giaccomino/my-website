@@ -1,7 +1,0 @@
-small size:
-<a href="#" onclick="window.open('https://www.sitelock.com/verify.php?site=omiostudio.com','SiteLock','width=600,height=600,left=160,top=170');"><img title="1&1 SiteLock" src="https://shield.sitelock.com/shield/omiostudio.com" alt="Seguridad de la página de inicio"></a>
-
-
-
-medium size:
-<a href="#" onclick="window.open('https://www.sitelock.com/verify.php?site=omiostudio.com','SiteLock','width=600,height=600,left=160,top=170');"><img title="1&1 SiteLock" src="https://shield.sitelock.com/shield/omiostudio.com" alt="Seguridad de la página de inicio"></a>
